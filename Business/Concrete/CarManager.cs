@@ -20,5 +20,27 @@ namespace Business.Concrete
         {
             return _carDal.GetAll();
         }
+
+        public Car GetCarsByBrandId(int id)
+        {
+            return _carDal.Get(c => c.BrandId == id);
+        }
+
+        public Car GetCarsByColorId(int id)
+        {
+            return _carDal.Get(c => c.ColorId == id);
+        }
+
+        public void Add(Car car)
+        {
+            if (car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Could not be added! Try again!");
+            }
+        }
     }
 }
