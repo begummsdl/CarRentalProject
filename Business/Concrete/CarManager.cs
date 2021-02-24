@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,7 +34,7 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.DailyPrice > 0)
+            if (car.Description.Length>2 && car.DailyPrice > 0)
             {
                 _carDal.Add(car);
             }
@@ -41,6 +42,21 @@ namespace Business.Concrete
             {
                 Console.WriteLine("Could not be added! Try again!");
             }
+        }
+
+        public List<CarDetailDto> CarDetails()
+        {
+            return _carDal.GetCarDetails();
+        }
+
+        public void Update(Car car)
+        {
+            _carDal.Update(car);
+        }
+
+        public void Delete(Car car)
+        {
+            _carDal.Delete(car);
         }
     }
 }
