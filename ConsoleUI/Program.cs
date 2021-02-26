@@ -11,7 +11,27 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //GetAllTest();
-            GetCarDetailsTest();
+            //GetCarDetailsTest();
+
+            UsersAdditionTest();
+            CustomersAdditionTest();
+        }
+
+        private static void UsersAdditionTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(new User { FirstName = "Begüm", LastName = "Muşdal", Email = "begum@hotmail.com", Password = "123456" });
+            userManager.Add(new User { FirstName = "Nisa", LastName = "Has", Email = "nisa@hotmail.com", Password = "222222" });
+            userManager.Add(new User { FirstName = "Gizem", LastName = "Baygın", Email = "gizem@hotmail.com", Password = "333333" });
+        }
+
+        private static void CustomersAdditionTest()
+        {
+            CustomerManager customer = new CustomerManager(new EfCustomerDal());
+            customer.Add(new Customer { UserId = 1, CompanyName = "Şirket1" });
+            customer.Add(new Customer { UserId = 3, CompanyName = "Şirket2" });
+            customer.Add(new Customer { UserId = 2, CompanyName = "Şirket3" });
+            customer.Add(new Customer { UserId = 3, CompanyName = "Şirket1" });
         }
 
         private static void GetCarDetailsTest()
