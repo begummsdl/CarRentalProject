@@ -13,8 +13,8 @@ namespace ConsoleUI
             //GetAllTest();
             //GetCarDetailsTest();
 
-            UsersAdditionTest();
-            CustomersAdditionTest();
+            //UsersAdditionTest();
+            //CustomersAdditionTest();
         }
 
         private static void UsersAdditionTest()
@@ -40,7 +40,7 @@ namespace ConsoleUI
             //carManager.Delete(new Car { Id = 4, BrandId = 3, ColorId = 2, ModelYear = 2020, DailyPrice = 500, Description = "Dizel" });
             //carManager.Add(new Car { BrandId = 2, ColorId = 3, DailyPrice = 398, ModelYear = 2020, Description = "Benzinli" });
             //carManager.Update(new Car { Id = 1, BrandId = 3, ColorId = 1, ModelYear = 2019, DailyPrice = 495, Description = "Benzinli" });
-            var result = carManager.CarDetails();
+            var result = carManager.GetCarDetails();
             if (result.Success)
             {
                 foreach (var car in result.Data)

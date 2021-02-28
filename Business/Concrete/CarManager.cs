@@ -29,7 +29,7 @@ namespace Business.Concrete
             return new ErrorResult(Messages.NoCarAdded);
         }
 
-        public IDataResult<List<CarDetailDto>> CarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
