@@ -70,8 +70,8 @@ namespace Business.Concrete
         private IResult CheckIfImagePathOfCarImageExists(int id)
         {
             string imagePath = "Logo";
-            var result = _carImageDal.GetAll(i => i.CarId == id).Any();
-            if (!result)
+            var result = _carImageDal.GetAll(i => i.CarId == id).Count;
+            if (result==0)
             {
                 return new ErrorResult(imagePath);
             }
