@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -63,6 +64,12 @@ namespace Business.Concrete
         public IDataResult<Car> GetCarsByColorId(int colorId)
         {
             return new SuccessDataResult<Car>(_carDal.Get(c => c.ColorId == colorId));
+        }
+
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Car car)
+        {
+            throw new NotImplementedException();
         }
     }
 }
