@@ -81,7 +81,7 @@ namespace WebAPI.Controllers
             var result = _carService.Add(car);
             if (result.Success)
             {
-                return Ok(car);
+                return Ok(result);
             }
             return BadRequest(result);
         }
