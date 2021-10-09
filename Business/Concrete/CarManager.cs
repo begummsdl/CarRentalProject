@@ -66,10 +66,15 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(c => c.ColorId == colorId));
         }
 
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.Id == carId));
+        }
+
         [TransactionScopeAspect]
         public IResult AddTransactionalTest(Car car)
         {
             throw new NotImplementedException();
-        }
+        } 
     }
 }
